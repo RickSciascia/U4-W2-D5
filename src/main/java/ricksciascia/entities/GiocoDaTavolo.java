@@ -34,4 +34,12 @@ public class GiocoDaTavolo extends Gioco{
     public void setDurataMedia(int durataMedia) {
         this.durataMedia = durataMedia;
     }
+
+    @Override
+    public String toString() {
+        return "GiocoDaTavolo " + "ID: " + getId() + " TITOLO " + getTitolo() + " anno: " + getAnno() + " PREZZO: " + getPrezzo() +
+                " N.giocatori=" + numberOfPlayers +
+                ", durataMedia=" + durataMedia +
+                '.';
+    }
 }

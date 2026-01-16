@@ -3,10 +3,31 @@ package ricksciascia;
 import ricksciascia.entities.Gioco;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Collezione {
     private Map<String, Gioco> collezione = new HashMap<>();
 
-    public void add
+//    metodi
+    public void addNew(Gioco gioco) throws IllegalArgumentException {
+        if(collezione.containsKey(gioco.getId())) {
+            throw new IllegalArgumentException("Errore l ID " + gioco.getId() + " è già presente");
+        } else {
+            collezione.put(gioco.getId(), gioco);
+        }
+    }
+
+    public Gioco searchById(String id) throws IllegalArgumentException {
+        if(collezione.containsKey(id)) {
+            return collezione.get(id);
+        } else {
+            throw new IllegalArgumentException("L Id inserito non è stato trovato!");
+        }
+    }
+
+    public List<Gioco> searchByPrice(double prezzo) {
+        List<Gioco> ricercaPerPrezzo = collezione.values().stream().filter(gioco -> gioco.getPrezzo() < prezzo).toList();
+        return ricercaPerPrezzo;
+    }
 }
