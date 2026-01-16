@@ -5,6 +5,7 @@ import ricksciascia.entities.Gioco;
 import ricksciascia.entities.GiocoDaTavolo;
 import ricksciascia.entities.Videogioco;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class Application {
@@ -95,6 +96,23 @@ public class Application {
                         System.out.println("Errore: " + e.getMessage());
                     }
                     break;
+                case 3:
+                    try{
+                        System.out.println("Inserisci il n. di giocatori su cui vuoi effettuare la ricerca: ");
+                        int nGiocatori = Integer.parseInt(sc.nextLine());
+                        List<GiocoDaTavolo> risultati =  collezione.searchByPlayerNumber(nGiocatori);
+                        if(risultati.isEmpty()) {
+                            System.out.println("Nessuna corrispondenza trovata");
+                        } else {
+                            System.out.println("---- CORRISPONDENZE ----");
+                            for(GiocoDaTavolo giocoDaTavolo : risultati) {
+                                System.out.println(giocoDaTavolo);
+                            }
+                        }
+                    }
+                    catch(Exception e) {
+                        System.out.println("Si è verificato un errore generico, ricontrolla il parametro!");
+                    }
                 case 0:
                     System.out.println("chiusura programma");
                     break;
