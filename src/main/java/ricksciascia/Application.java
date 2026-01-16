@@ -96,7 +96,7 @@ public class Application {
                         System.out.println("Errore: " + e.getMessage());
                     }
                     break;
-                case 3:
+                case 4:
                     try{
                         System.out.println("Inserisci il n. di giocatori su cui vuoi effettuare la ricerca: ");
                         int nGiocatori = Integer.parseInt(sc.nextLine());
@@ -113,6 +113,7 @@ public class Application {
                     catch(Exception e) {
                         System.out.println("Si è verificato un errore generico, ricontrolla il parametro!");
                     }
+                    break;
                 case 0:
                     System.out.println("chiusura programma");
                     break;
