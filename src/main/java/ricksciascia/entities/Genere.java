@@ -1,8 +1,8 @@
 package ricksciascia.entities;
 
 public enum Genere {
-    Action,
+    ACTION,
     RPG,
-    Sparatutto,
+    SPARATUTTO,
     SIM
 }
