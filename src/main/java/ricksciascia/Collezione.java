@@ -1,6 +1,7 @@
 package ricksciascia;
 
 import ricksciascia.entities.Gioco;
+import ricksciascia.entities.GiocoDaTavolo;
 
 import java.util.HashMap;
 import java.util.List;
@@ -29,5 +30,19 @@ public class Collezione {
     public List<Gioco> searchByPrice(double prezzo) {
         List<Gioco> ricercaPerPrezzo = collezione.values().stream().filter(gioco -> gioco.getPrezzo() < prezzo).toList();
         return ricercaPerPrezzo;
+    }
+    public List<GiocoDaTavolo> searchByPlayerNumber(int nGiocatori) {
+        List<GiocoDaTavolo> ricercaPerGiocatori = collezione.values().stream()
+                .filter(gioco -> gioco instanceof GiocoDaTavolo)
+                .map(gioco -> (GiocoDaTavolo) gioco)
+                .filter(gioco -> gioco.getNumberOfPlayers() == nGiocatori).toList();
+        return ricercaPerGiocatori;
+    }
+
+    @Override
+    public String toString() {
+        return "Collezione{" +
+                "collezione=" + collezione +
+                '}';
     }
 }
